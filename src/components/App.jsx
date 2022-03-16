@@ -1,4 +1,17 @@
 import React from "react";
+import Emoji from "../emojipedia";
+import Entry from "./Entry";
+
+function emojiDictionary(Emoji) {
+  return (
+    <Entry
+      key={Emoji.id}
+      emoji={Emoji.emoji}
+      name={Emoji.name}
+      meaning={Emoji.meaning}
+    />
+  );
+}
 
 function App() {
   return (
@@ -8,44 +21,24 @@ function App() {
       </h1>
 
       <dl className="dictionary">
-        <div className="term">
-          <dt>
-            <span className="emoji" role="img" aria-label="Tense Biceps">
-              💪
-            </span>
-            <span>Tense Biceps</span>
-          </dt>
-          <dd>
-            “You can do that!” or “I feel strong!” Arm with tense biceps. Also
-            used in connection with doing sports, e.g. at the gym.
-          </dd>
-        </div>
-        <div className="term">
-          <dt>
-            <span className="emoji" role="img" aria-label="Tense Biceps">
-              🙏
-            </span>
-            <span>Person With Folded Hands</span>
-          </dt>
-          <dd>
-            Two hands pressed together. Is currently very introverted, saying a
-            prayer, or hoping for enlightenment. Is also used as a “high five”
-            or to say thank you.
-          </dd>
-        </div>
-        <div className="term">
-          <dt>
-            <span className="emoji" role="img" aria-label="Tense Biceps">
-              🤣
-            </span>
-            <span>Rolling On The Floor, Laughing</span>
-          </dt>
-          <dd>
-            This is funny! A smiley face, rolling on the floor, laughing. The
-            face is laughing boundlessly. The emoji version of “rofl“. Stands
-            for „rolling on the floor, laughing“.
-          </dd>
-        </div>
+        {Emoji.map(emojiDictionary)}
+        {/* <Entry
+          emoji={Emoji[0].emoji}
+          name={Emoji[0].name}
+          meaning={Emoji[0].meaning}
+        />
+
+        <Entry
+          emoji={Emoji[1].emoji}
+          name={Emoji[1].name}
+          meaning={Emoji[1].meaning}
+        />
+
+        <Entry
+          emoji={Emoji[2].emoji}
+          name={Emoji[2].name}
+          meaning={Emoji[2].meaning}
+        /> */}
       </dl>
     </div>
   );
